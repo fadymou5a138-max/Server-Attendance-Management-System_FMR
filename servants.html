@@ -1,0 +1,65 @@
+<!doctype html><html lang="ar" dir="rtl"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/servants.css"><title>الخدام | FMR Attendance</title></head>
+<body data-page="servants"><div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon"><i class="fa-solid fa-user-check"></i></div>
+    <div><h2>FMR</h2><span>Attendance</span></div>
+  </div>
+  <nav class="sidebar-menu">
+    <a href="index.html" data-page="dashboard"><i class="fa-solid fa-chart-line"></i><span>لوحة التحكم</span></a>
+    <a href="attendance.html" data-page="attendance"><i class="fa-solid fa-calendar-check"></i><span>كشف الحضور</span></a>
+    <a href="servants.html" data-page="servants"><i class="fa-solid fa-users"></i><span>الخدام</span></a>
+    <a href="meetings.html" data-page="meetings"><i class="fa-solid fa-calendar-days"></i><span>الاجتماعات</span></a>
+    <a href="reports.html" data-page="reports"><i class="fa-solid fa-chart-pie"></i><span>التقارير</span></a>
+    <a href="settings.html" data-page="settings"><i class="fa-solid fa-gear"></i><span>الإعدادات</span></a>
+  </nav>
+  <div class="sidebar-bottom">
+    <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i><span>الوضع الليلي</span></button>
+    <div class="sidebar-version">FMR Attendance v1.0</div>
+  </div>
+</aside>
+<main class="main-content">
+<header class="topbar">
+  <div class="topbar-right">
+    <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fa-solid fa-bars"></i></button>
+    <div><h1>الخدام</h1><p>إدارة بيانات الخدام</p></div>
+  </div>
+  <div class="topbar-left">
+    <button class="notification-btn"><i class="fa-regular fa-bell"></i></button>
+    <div class="admin-profile">
+      <div class="admin-avatar">FM</div>
+      <div class="admin-info"><strong id="adminName">Admin</strong><span>مدير النظام</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="page-content">
+  <div class="page-header"><div><h2>إدارة الخدام</h2><p>إضافة وتعديل وحذف الخدام</p></div><button class="btn btn-primary" id="addServantBtn"><i class="fa-solid fa-plus"></i> إضافة خادم</button></div>
+  <div class="stats-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="stat-card"><div class="stat-icon blue"><i class="fa-solid fa-users"></i></div><div><span>إجمالي الخدام</span><strong id="totalServantsCount">0</strong></div></div>
+    <div class="stat-card"><div class="stat-icon green"><i class="fa-solid fa-circle-check"></i></div><div><span>نشط</span><strong id="activeServantsCount">0</strong></div></div>
+    <div class="stat-card"><div class="stat-icon red"><i class="fa-solid fa-circle-xmark"></i></div><div><span>غير نشط</span><strong id="inactiveServantsCount">0</strong></div></div>
+  </div>
+  <div class="toolbar"><div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="servantSearch" placeholder="ابحث باسم الخادم أو الهاتف أو المجموعة..."></div></div>
+  <div class="card"><div class="card-header"><div><h3>قائمة الخدام</h3><p>جميع الخدام المسجلين</p></div><span id="tableServantsCount">0 خادم</span></div>
+  <div class="table-wrapper"><table><thead><tr><th>الخادم</th><th>الهاتف</th><th>المجموعة</th><th>الدور</th><th>الحالة</th><th>تاريخ الإضافة</th><th>الإجراءات</th></tr></thead><tbody id="servantsTableBody"></tbody></table></div></div>
+</section>
+<footer class="footer"><p>© 2026 FMR Attendance System</p><span>نظام إدارة حضور الخدام</span></footer>
+</main></div>
+<div class="modal-overlay" id="servantModal"><div class="modal"><div class="modal-header"><div><h3 id="servantModalTitle">إضافة خادم</h3><p>أدخل بيانات الخادم</p></div><button class="modal-close" id="closeServantModal"><i class="fa-solid fa-xmark"></i></button></div>
+<form id="servantForm"><div class="form-grid">
+<div class="form-group full"><label>اسم الخادم</label><input id="servantName" required></div>
+<div class="form-group"><label>الهاتف</label><input id="servantPhone"></div>
+<div class="form-group"><label>المجموعة</label><input id="servantGroup"></div>
+<div class="form-group"><label>الدور</label><input id="servantRole"></div>
+<div class="form-group"><label>الحالة</label><select id="servantStatus"><option value="active">نشط</option><option value="inactive">غير نشط</option></select></div>
+</div><div class="modal-footer"><button type="button" class="btn btn-secondary" id="cancelServantBtn">إلغاء</button><button class="btn btn-primary" type="submit">حفظ</button></div></form></div></div>
+<script src="js/storage.js"></script><script src="js/app.js"></script><script src="js/servants.js"></script></body></html>

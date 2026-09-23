@@ -1,0 +1,58 @@
+<!doctype html><html lang="ar" dir="rtl"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/attendance.css"><title>كشف الحضور | FMR Attendance</title></head>
+<body data-page="attendance"><div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon"><i class="fa-solid fa-user-check"></i></div>
+    <div><h2>FMR</h2><span>Attendance</span></div>
+  </div>
+  <nav class="sidebar-menu">
+    <a href="index.html" data-page="dashboard"><i class="fa-solid fa-chart-line"></i><span>لوحة التحكم</span></a>
+    <a href="attendance.html" data-page="attendance"><i class="fa-solid fa-calendar-check"></i><span>كشف الحضور</span></a>
+    <a href="servants.html" data-page="servants"><i class="fa-solid fa-users"></i><span>الخدام</span></a>
+    <a href="meetings.html" data-page="meetings"><i class="fa-solid fa-calendar-days"></i><span>الاجتماعات</span></a>
+    <a href="reports.html" data-page="reports"><i class="fa-solid fa-chart-pie"></i><span>التقارير</span></a>
+    <a href="settings.html" data-page="settings"><i class="fa-solid fa-gear"></i><span>الإعدادات</span></a>
+  </nav>
+  <div class="sidebar-bottom">
+    <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i><span>الوضع الليلي</span></button>
+    <div class="sidebar-version">FMR Attendance v1.0</div>
+  </div>
+</aside>
+<main class="main-content">
+<header class="topbar">
+  <div class="topbar-right">
+    <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fa-solid fa-bars"></i></button>
+    <div><h1>كشف الحضور</h1><p>تسجيل حضور وغياب الخدام</p></div>
+  </div>
+  <div class="topbar-left">
+    <button class="notification-btn"><i class="fa-regular fa-bell"></i></button>
+    <div class="admin-profile">
+      <div class="admin-avatar">FM</div>
+      <div class="admin-info"><strong id="adminName">Admin</strong><span>مدير النظام</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="page-content">
+  <div class="page-header"><div><h2>كشف الحضور</h2><p>اختر الاجتماع والتاريخ ثم سجل الحالة</p></div><button class="btn btn-primary" id="saveAttendanceBtn"><i class="fa-solid fa-floppy-disk"></i> حفظ الحضور</button></div>
+  <div class="toolbar"><select id="meetingSelect"><option value="">اختر الاجتماع</option></select><input id="attendanceDate" type="date"><div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="attendanceSearch" placeholder="ابحث عن خادم..."></div><button class="btn btn-secondary" id="markAllPresentBtn">الكل حاضر</button></div>
+  <div class="attendance-summary">
+    <div class="attendance-card"><span>الإجمالي</span><strong id="attendanceTotal">0</strong></div>
+    <div class="attendance-card"><span>حضور</span><strong id="attendancePresent">0</strong></div>
+    <div class="attendance-card"><span>غياب</span><strong id="attendanceAbsent">0</strong></div>
+    <div class="attendance-card"><span>تأخير</span><strong id="attendanceLate">0</strong></div>
+  </div>
+  <div class="card"><div class="card-header"><div><h3>الخدام</h3><p>حدد حالة كل خادم</p></div></div>
+  <div class="table-wrapper"><table><thead><tr><th>الخادم</th><th>المجموعة</th><th>الدور</th><th>الحالة</th></tr></thead><tbody id="attendanceTableBody"></tbody></table></div></div>
+</section>
+<footer class="footer"><p>© 2026 FMR Attendance System</p><span>نظام إدارة حضور الخدام</span></footer>
+</main></div>
+<script src="js/storage.js"></script><script src="js/app.js"></script><script src="js/attendance.js"></script></body></html>
