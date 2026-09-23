@@ -5,13 +5,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/settings.css"><title>الإعدادات | FMR Attendance</title></head>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="settings.css"><title>الإعدادات | FMR Attendance</title></head>
 <body data-page="settings"><div class="app">
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-logo">
     <div class="logo-icon"><i class="fa-solid fa-user-check"></i></div>
-    <div><h2>FMR</h2><span>Attendance</span></div>
+    
   </div>
   <nav class="sidebar-menu">
     <a href="index.html" data-page="dashboard"><i class="fa-solid fa-chart-line"></i><span>لوحة التحكم</span></a>
@@ -44,23 +44,40 @@
 <section class="page-content">
   <div class="page-header"><div><h2>إعدادات النظام</h2><p>قم بتخصيص بيانات النظام والنسخ الاحتياطي</p></div><button class="btn btn-primary" id="saveSettingsBtn"><i class="fa-solid fa-floppy-disk"></i> حفظ الإعدادات</button></div>
   <div class="settings-grid">
-    <div class="card settings-section"><h3>بيانات النظام</h3>
-      <div class="form-group"><label>اسم النظام</label><input id="systemName" value="FMR Attendance"></div>
-      <div class="form-group"><label>اسم الكنيسة</label><input id="churchName"></div>
-      <div class="form-group"><label>اسم الخدمة</label><input id="serviceName"></div>
-      <div class="form-group"><label>اسم المسؤول</label><input id="adminNameInput"></div>
-      <div class="form-group"><label>الهاتف</label><input id="adminPhone"></div>
-    </div>
+    <div class="card settings-section">
+  <h3>بيانات النظام</h3>
+
+  <div class="form-group">
+    <label>اسم النظام</label>
+    <input value="نظام إدارة حضور الخدام" readonly>
+  </div>
+
+  <div class="form-group">
+    <label>اسم الكنيسة</label>
+    <input value="كنيسة مارجرجس الروماني – نزلة عبيد" readonly>
+  </div>
+
+  <div class="form-group">
+    <label>اسم الخدمة</label>
+    <input value="فترة الشهيد أبانوب – خدمة أولى وثانية ابتدائي" readonly>
+  </div>
+
+  <div class="form-group">
+    <label>اسم المسؤول</label>
+    <input value="فادي موسى" readonly>
+  </div>
+
+  <div class="form-group">
+    <label>الهاتف</label>
+    <input value="01202651056" readonly>
+  </div>
+</div>
     <div class="card settings-section"><h3>إعدادات الحضور</h3>
       <div class="switch-row"><div><strong>اعتبار التأخير حضور</strong><div style="color:var(--text-light);font-size:12px">يدخل ضمن نسبة الحضور</div></div><label class="switch"><input id="lateAsPresent" type="checkbox" checked><span class="slider"></span></label></div>
       <div class="switch-row"><div><strong>الغياب افتراضيًا</strong><div style="color:var(--text-light);font-size:12px">عند فتح كشف جديد</div></div><label class="switch"><input id="defaultAbsent" type="checkbox"><span class="slider"></span></label></div>
     </div>
-    <div class="card settings-section"><h3>النسخ الاحتياطي</h3>
-      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-primary" id="exportDataBtn"><i class="fa-solid fa-download"></i> تصدير JSON</button><label class="btn btn-secondary" style="cursor:pointer"><i class="fa-solid fa-upload"></i> استيراد<input id="importDataInput" type="file" accept=".json" hidden></label></div>
-    </div>
-    <div class="card settings-section danger-zone"><h3>منطقة خطرة</h3><p style="color:var(--text-light)">سيتم حذف كل بيانات الخدام والاجتماعات والحضور والإعدادات.</p><button class="btn btn-danger" id="clearDataBtn"><i class="fa-solid fa-trash"></i> حذف جميع البيانات</button></div>
-  </div>
+   <!--التعديل هنا -->
 </section>
 <footer class="footer"><p>© 2026 FMR Attendance System</p><span>نظام إدارة حضور الخدام</span></footer>
 </main></div>
-<script src="js/storage.js"></script><script src="js/app.js"></script><script src="js/settings.js"></script></body></html>
+<script src="storage.js"></script><script src="app.js"></script><script src="settings.js"></script></body></html>

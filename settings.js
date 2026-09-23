@@ -1,0 +1,10 @@
+"use strict";
+document.addEventListener("DOMContentLoaded",()=>{loadS();bindS()});
+function loadS(){const s=getSettings();setVal("systemName",s.systemName||"FMR Attendance");setVal("churchName",s.churchName||"");setVal("serviceName",s.serviceName||"");setVal("adminNameInput",s.adminName||"Admin");setVal("adminPhone",s.adminPhone||"");document.getElementById("lateAsPresent").checked=s.lateAsPresent!==false;document.getElementById("defaultAbsent").checked=s.defaultAbsent===true}
+function bindS(){
+  document.getElementById("saveSettingsBtn").addEventListener("click",()=>{const s={systemName:val("systemName")||"FMR Attendance",churchName:val("churchName"),serviceName:val("serviceName"),adminName:val("adminNameInput")||"Admin",adminPhone:val("adminPhone"),lateAsPresent:document.getElementById("lateAsPresent").checked,defaultAbsent:document.getElementById("defaultAbsent").checked};saveSettings(s);document.querySelectorAll("#adminName").forEach(e=>e.textContent=s.adminName);showToast("تم حفظ الإعدادات")});
+  document.getElementById("exportDataBtn").addEventListener("click",()=>{const blob=new Blob([JSON.stringify(exportDatabase(),null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=`FMR-Attendance-Backup-${getToday()}.json`;a.click();URL.revokeObjectURL(url)});
+  document.getElementById("importDataInput").addEventListener("change",e=>{const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const b=JSON.parse(r.result);if(!confirm("سيتم استبدال البيانات الحالية. متابعة؟"))return;if(!importDatabase(b))throw new Error("bad");showToast("تمت الاستعادة بنجاح");setTimeout(()=>location.reload(),700)}catch{showToast("ملف غير صالح","error")}};r.readAsText(f);e.target.value=""});
+  document.getElementById("clearDataBtn").addEventListener("click",()=>{if(confirm("هل أنت متأكد من حذف جميع البيانات؟")&&confirm("سيتم الحذف نهائيًا من هذا المتصفح. متابعة؟")){clearDatabase();showToast("تم حذف البيانات");setTimeout(()=>location.reload(),700)}})
+}
+function val(id){return document.getElementById(id).value.trim()}function setVal(id,v){document.getElementById(id).value=v}

@@ -1,0 +1,24 @@
+.report-layout{display:grid;grid-template-columns:320px 1fr;gap:18px}
+.circle-card{padding:22px;text-align:center}
+.attendance-circle{
+  width:180px;height:180px;margin:10px auto 18px;border-radius:50%;
+  display:grid;place-items:center;
+  background:conic-gradient(var(--primary) 0deg,#e5e7eb 0deg)
+}
+.attendance-circle::before{
+  content:"";width:132px;height:132px;border-radius:50%;
+  background:var(--card);position:absolute
+}
+.circle-wrap{position:relative}
+.circle-text{position:absolute;inset:0;display:grid;place-items:center;font-size:28px;font-weight:800}
+.progress-row{margin:12px 0}
+.progress-head{display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px}
+.progress{height:8px;background:var(--bg);border-radius:20px;overflow:hidden}
+.progress>span{display:block;height:100%;background:var(--primary);border-radius:20px}
+@media(max-width:900px){.report-layout{grid-template-columns:1fr}}
+@media print{
+  .sidebar,.topbar,.footer,.toolbar,.no-print{display:none!important}
+  .main-content{margin:0}
+  body{background:#fff;color:#000}
+  .card,.stat-card{box-shadow:none;border:1px solid #ddd}
+}

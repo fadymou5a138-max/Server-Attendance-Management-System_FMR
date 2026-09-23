@@ -1,0 +1,14 @@
+.attendance-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+.attendance-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+.attendance-card span{display:block;color:var(--text-light);font-size:12px}
+.attendance-card strong{font-size:22px}
+.status-buttons{display:flex;gap:6px;flex-wrap:wrap}
+.status-btn{
+  border:1px solid var(--border);background:var(--bg);color:var(--text);
+  border-radius:8px;padding:7px 9px;cursor:pointer;font-size:11px;font-weight:700
+}
+.status-btn.active.present{background:var(--success);color:#fff;border-color:var(--success)}
+.status-btn.active.absent{background:var(--danger);color:#fff;border-color:var(--danger)}
+.status-btn.active.late{background:var(--warning);color:#fff;border-color:var(--warning)}
+@media(max-width:850px){.attendance-summary{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.attendance-summary{grid-template-columns:1fr}}
